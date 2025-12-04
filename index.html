@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> calculator</title>
+</head>
+<style>
+    body {
+    height: 600px;
+    display: grid;
+    place-items: center;
+    background-color: #d6d6d6;
+}
+#page{
+
+    height: 55px;
+    background: #969aaa;
+    text-align: right;
+    padding: 5px;
+    font-size: 48px;
+    margin-bottom: 8px;
+    overflow: hidden;       
+    white-space: nowrap;   
+    text-overflow: ellipsis;      
+}
+#btns{
+    display:grid;
+    grid-template-columns: repeat(5,2fr);
+}
+.i{
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid #aaa;
+    color: rgb(0, 0, 0);
+    
+}
+.i:hover {
+    background-color: #555; 
+}
+#calcu{
+    width: 350px;
+ 
+}
+.number{
+    background-color: #e6e6e6; 
+}
+.char{
+    background-color: #d4d4d2; 
+}
+.eq{
+    background-color: #f5923e;
+}
+.small{
+    background-color: #a6a6a6;
+}
+.clear{
+    background-color: #8e8e8e;
+}
+#help{
+    max-width: 350px;
+    position:fixed;
+    top:19px;
+    right:22px;
+    font-size:18px;
+    padding:5px 10px;
+    direction: rtl;
+    border-radius: 7px;
+    background-color: #00000031; 
+}
+</style>
+<body >
+    <details id="help">
+        <summary>راهنما</summary>
+        <div>
+        <p>راهنمای استفاده از ماشین حساب:</p>
+            <p>1. اعداد :
+                از دکمه های 0 تا 9 برای استفاده از اعداد استفاده کنید</p>       
+               <p>2. عملیات :
+                "^" برای توان، x² برای مربع، x³ برای مکعب
+                √ برای  ریشه دوم
+                log برای لگاریتم</p>
+               <p>3. توابع :
+                sin، cos، tan برای محاسبات زاویه‌ای</p>
+               <p>4. π  :
+                مقدار عدد پی را وارد می‌کند</p>
+               <p>5. مبنا:
+                برای محاسبه مبنا ابتدا عدد  وارد کرده و سپس دکمه مبنا را بزنید
+                مبنای قابل محاسبه در ماشین حساب مبنای (2-8-10)</p>
+        </div>
+    </details>
+    <div id="calcu">
+        <div id="page">0</div>
+        <div id="btns">
+            <button class="i char" onclick="op('^')">^</button>
+            <button class="i char" onclick="op('x²')">x²</button>
+            <button class="i char" onclick="op('x³')">x³</button>
+            <button class="i char" onclick="pi('π')">π</button>
+            <button class="i char" onclick="op('%')">%</button>
+            <button class="i small" onclick="log()">log</button>
+            <button class="i clear" onclick="clearr()">CE</button>
+            <button class="i clear" onclick="clearr()">C</button>
+            <button class="i clear" onclick="back()">⌫</button>
+            <button class="i char" onclick="op('÷')">÷</button>
+            <button class="i small" onclick="sqrt()">√</button>
+            <button class="i number" onclick="number('7')">7</button>
+            <button class="i number" onclick="number('8')">8</button>
+            <button class="i number" onclick="number('9')">9</button>
+            <button class="i char" onclick="op('*')">×</button>
+            <button class="i small" onclick="sin()">sin</button>
+            <button class="i number" onclick="number('4')">4</button>
+            <button class="i number" onclick="number('5')">5</button>
+            <button class="i number" onclick="number('6')">6</button>
+            <button class="i char" onclick="op('-')">-</button>
+            <button class="i small" onclick="cos()">cos</button>
+            <button class="i number" onclick="number('1')">1</button>
+            <button class="i number" onclick="number('2')">2</button>
+            <button class="i number" onclick="number('3')">3</button>
+            <button class="i char" onclick="op('+')">+</button>
+            <button class="i small" onclick="tan()">tan</button>        
+            <button class="i number" onclick="number('.')">.</button>
+            <button class="i number" onclick="number('0')">0</button>
+            <button class="i eq" onclick="equal()">=</button>
+            <button class="i small" onclick="mabna()">مبنا</button>
+        </div>
+    </div>
+    <script src="cal.js"></script>
+</body>
+
+</html>
