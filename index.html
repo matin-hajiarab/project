@@ -40,7 +40,7 @@
 }
 #calcu{
     width: 350px;
- 
+    z-index: 0; 
 }
 .number{
     background-color: #e6e6e6; 
@@ -61,12 +61,17 @@
     max-width: 350px;
     position:fixed;
     top:19px;
+    z-index: 1000;
+    position: fixed;
     right:22px;
     font-size:18px;
     padding:5px 10px;
     direction: rtl;
     border-radius: 7px;
     background-color: #00000031; 
+}
+#help[open] ~ #calcu {
+    filter: blur(3px); 
 }
 </style>
 <body >
